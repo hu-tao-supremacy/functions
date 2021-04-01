@@ -19,3 +19,4 @@ def main(event, context):
     if 'data' in event:
         n = base64.b64decode(event['data']).decode('utf-8')
         result = fib(n)
+        print(result)
