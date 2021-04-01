@@ -1,11 +1,21 @@
-import time
+def main(event, context):
+    """
+    Args:
+        event (dict) : The dictionary with data specific to this type of event.
+        - The `data` field contains the PubsubMessage message.
+        - The `attributes` field contains custom attributes if there are any.
+        context (google.cloud.functions.Context) : The Cloud Functions event metadata.
+        - The `event_id` field contains the Pub/Sub message ID.
+        - The `timestamp` field contains the publish time.
+    """
 
-def fib(n):
-    if n == 0 or n == 1:
-        return n
-    return fib(n - 1) + fib(n - 2)
+    import base64
 
-def profile_cpu(n = 30):
-    start = time.time()
-    fib(n)
-    return time.time() - start()
+    def fib(n):
+        if n == 0 or n == 1:
+            return n
+        return fib(n - 1) + fib(n - 2)
+
+    if 'data' in event:
+        n = base64.b64decode(event['data']).decode('utf-8')
+        result = fib(n)
