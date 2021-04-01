@@ -10,7 +10,8 @@ jobs:
           runtime: python37
           credentials: ${{ secrets.CLOUD_FUNCTIONS_CREDENTIALS }}
           memory_mb: 1024
-          region: asia-northeast1
+          region: asia-east2
           event_trigger_type: google.pubsub.topic.publish
           event_trigger_resource: projects/${{ secrets.PROJECT_ID }}/topics/${{ secrets.TOPIC_ID }}
           max_instances: 1
+          source_dir: functions/personalization
