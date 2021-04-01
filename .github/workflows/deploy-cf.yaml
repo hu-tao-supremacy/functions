@@ -1,0 +1,6 @@
+name: Deploy to Cloud Functions
+on: [push]
+jobs:
+  deploy:
+    steps:
+      - uses: actions/checkout@v2
