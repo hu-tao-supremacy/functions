@@ -1,4 +1,4 @@
-def main(event, context):
+def personalization(event, context):
     """
     Args:
         event (dict) : The dictionary with data specific to this type of event.
