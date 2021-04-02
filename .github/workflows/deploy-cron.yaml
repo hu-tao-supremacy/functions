@@ -20,4 +20,4 @@ jobs:
       - run: |
           cd functions/cron
           yarn
-          firebase deploy --debug --only functions
+          firebase deploy --only functions
