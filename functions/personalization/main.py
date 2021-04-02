@@ -10,6 +10,7 @@ def personalization(event, context):
     """
 
     import base64
+    import json
 
     def fib(n):
         if n == 0 or n == 1:
@@ -18,5 +19,6 @@ def personalization(event, context):
 
     if 'data' in event:
         message = base64.b64decode(event['data']).decode('utf-8')
-        result = fib(int(message.data))
+        message_dict = json.loads(message)
+        result = fib(int(message_dict['data']))
         print(str(result))
