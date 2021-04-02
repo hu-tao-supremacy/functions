@@ -6,7 +6,7 @@ const pubsub = new PubSub();
 exports.scheduler = functions
   .region("asia-east2")
   .pubsub
-  .schedule("every midnight")
+  .schedule("every day at midnight")
   .timeZone("Asia/Bangkok")
   .onRun(async (context) => {
     const n = Math.floor(Math.random() * 31);
