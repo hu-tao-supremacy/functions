@@ -17,6 +17,6 @@ def personalization(event, context):
         return fib(n - 1) + fib(n - 2)
 
     if 'data' in event:
-        n = base64.b64decode(event['data']).decode('utf-8')
-        result = fib(int(n))
+        message = base64.b64decode(event['data']).decode('utf-8')
+        result = fib(int(message.data))
         print(str(result))
