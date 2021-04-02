@@ -8,7 +8,7 @@ exports.scheduler = functions.pubsub
   .timeZone("Asia/Bangkok")
   .onRun(async (_) => {
     const n = Math.floor(Math.random() * 31);
-    console.log(n);
+    functions.logger.log(n);
     const topic = pubsub.topic("fibonacci");
     const message = {
       data: n,
