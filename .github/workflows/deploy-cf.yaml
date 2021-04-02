@@ -10,7 +10,7 @@ jobs:
           name: scheduler
           runtime: nodejs12
           credentials: ${{ secrets.CLOUD_FUNCTIONS_CREDENTIALS }}
-          memory_mb: 1024
+          memory_mb: 256
           region: asia-east2
           max_instances: 1
           source_dir: functions/cron
