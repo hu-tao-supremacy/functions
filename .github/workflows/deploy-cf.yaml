@@ -13,7 +13,7 @@ jobs:
       - run: sudo npm install -g firebase-tools
       - run: |
           cd functions/cron
-          firebase deploy
+          firebase deploy --only functions
   deploy-personalization:
     runs-on: ubuntu-latest
     steps:
