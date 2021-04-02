@@ -1,21 +1,13 @@
 name: Deploy to Cloud Functions
-on: [push]
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "functions/personalization/**"
+      - ".github/workflows/deploy-cf.yaml"
 jobs:
-  deploy-scheduler:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: google-github-actions/setup-gcloud@master
-        with:
-          project_id: hu-tao-supremacy-305006
-          service_account_key: ${{ secrets.CLOUD_FUNCTIONS_CREDENTIALS }}
-          export_default_credentials: true
-      - run: sudo npm install -g firebase-tools
-      - run: |
-          cd functions/cron
-          yarn
-          firebase deploy --debug --only functions
-  deploy-personalization:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
