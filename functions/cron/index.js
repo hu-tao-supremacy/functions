@@ -14,4 +14,5 @@ exports.scheduler = functions.pubsub
       };
       await topic.publish(Buffer.from(JSON.stringify(message), "utf-8"));
     } catch (_) {}
+    return null;
   });
