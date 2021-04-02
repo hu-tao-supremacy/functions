@@ -8,7 +8,7 @@ jobs:
       - uses: google-github-actions/deploy-cloud-functions@main
         with:
           name: scheduler
-          runtime: node12
+          runtime: nodejs12
           credentials: ${{ secrets.CLOUD_FUNCTIONS_CREDENTIALS }}
           memory_mb: 1024
           region: asia-east2
