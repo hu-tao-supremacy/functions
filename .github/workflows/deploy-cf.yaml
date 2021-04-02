@@ -10,15 +10,10 @@ jobs:
           project_id: hu-tao-supremacy-305006
           service_account_key: ${{ secrets.CLOUD_FUNCTIONS_CREDENTIALS }}
           export_default_credentials: true
-      - uses: google-github-actions/deploy-cloud-functions@main
-        with:
-          name: scheduler
-          runtime: nodejs12
-          memory_mb: 256
-          region: asia-east2
-          max_instances: 1
-          source_dir: functions/cron
-          env_vars: GCLOUD_PROJECT=hu-tao-supremacy-305006
+      - run: |
+          curl -sL firebase.tools | bash
+          cd functions/cron
+          firebase deploy
   deploy-personalization:
     runs-on: ubuntu-latest
     steps:
