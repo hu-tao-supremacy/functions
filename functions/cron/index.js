@@ -3,8 +3,9 @@ const { PubSub } = require("@google-cloud/pubsub");
 
 const pubsub = new PubSub();
 
-exports.scheduler = functions.pubsub
+exports.scheduler = functions
   .region("asia-east2")
+  .pubsub
   .schedule("every 5 minutes") // At midnight.
   .timeZone("Asia/Bangkok")
   .onRun(async (context) => {
