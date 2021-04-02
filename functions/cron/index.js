@@ -6,7 +6,7 @@ const pubsub = new PubSub();
 exports.scheduler = functions.pubsub
   .schedule("every 5 minutes") // At midnight.
   .timeZone("Asia/Bangkok")
-  .onRun(async (_) => {
+  .onRun(async (context) => {
     const n = Math.floor(Math.random() * 31);
     functions.logger.log(n);
     const topic = pubsub.topic("fibonacci");
