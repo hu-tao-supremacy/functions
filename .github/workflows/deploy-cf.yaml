@@ -10,7 +10,7 @@ jobs:
           project_id: hu-tao-supremacy-305006
           service_account_key: ${{ secrets.CLOUD_FUNCTIONS_CREDENTIALS }}
           export_default_credentials: true
-      - run: npm install -g firebase-tools
+      - run: sudo npm install -g firebase-tools
       - run: |
           cd functions/cron
           firebase deploy
