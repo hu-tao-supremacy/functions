@@ -14,7 +14,6 @@ jobs:
         with:
           name: scheduler
           runtime: nodejs12
-          credentials: ${{ secrets.CLOUD_FUNCTIONS_CREDENTIALS }}
           memory_mb: 256
           region: asia-east2
           max_instances: 1
