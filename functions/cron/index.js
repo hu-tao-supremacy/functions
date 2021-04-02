@@ -1,5 +1,8 @@
 const functions = require("firebase-functions");
+const admin = require("firebase-admin");
 const { PubSub } = require("@google-cloud/pubsub");
+
+admin.initializeApp();
 
 const pubsub = new PubSub();
 
